@@ -412,3 +412,10 @@ config ZSMALLOC
 	  non-standard allocator interface where a handle, not a pointer, is
 	  returned by an alloc().  This handle must be mapped in order to
 	  access the allocated space.
+
+config ZPOOL
+	tristate "Common API for compressed memory storage"
+	default n
+	help
+	  Compressed memory storage API.  This allows using either zbud or
+	  zsmalloc.
