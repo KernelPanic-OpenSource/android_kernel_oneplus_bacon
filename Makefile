@@ -403,6 +403,8 @@ KBUILD_CFLAGS   := -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs \
 		   -fno-common -fno-strict-aliasing \
    		   -Werror-implicit-function-declaration \
 		   -Wno-format-security \
+		   -Wno-attributes \
+		   -Wno-unused-variable \
 		   -fno-delete-null-pointer-checks \
 		   -std=gnu89 \
 		   $(ARM_ARCH_OPT) \
