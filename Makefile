@@ -602,6 +602,45 @@ endif # $(dot-config)
 # Defaults to vmlinux, but the arch makefile usually adds further targets
 all: vmlinux
 
+KBUILD_CFLAGS	+= $(call cc-disable-warning,maybe-uninitialized,)
+
+####################
+# Optimization flags
+####################
+
+KBUILD_CFLAGS   += $(call cc-option, -g0,) \
+		   $(call cc-option, -mcpu=cortex-a15,) \
+		   $(call cc-option, -mfpu=neon-vfpv4,) \
+		   $(call cc-option, -mvectorize-with-neon-quad,) \
+		   $(call cc-option, -fsingle-precision-constant,) \
+		   $(call cc-option, -fgcse-after-reload,) \
+		   $(call cc-option, -fpredictive-commoning,)
+
+#######################
+# Disable some warnings
+#######################
+
+KBUILD_CFLAGS	+= 	-Wno-maybe-uninitialized \
+			-Wno-incompatible-pointer-types \
+			-Wno-format-security \
+			-Wno-discarded-array-qualifiers \
+			-Wno-memset-transposed-args \
+			-Wno-bool-compare \
+			-Wno-logical-not-parentheses \
+			-Wno-switch-bool \
+			-Wno-array-bounds \
+			-Wno-misleading-indentation \
+			-Wno-format-truncation \
+			-Wno-bool-operation \
+			-Wno-duplicate-decl-specifier \
+			-Wno-memset-elt-size \
+			-Wno-parentheses \
+			-Wno-format-overflow \
+			-Wno-int-in-bool-context \
+			-Wno-switch-unreachable 
+
+KBUILD_AFLAGS   += $(call cc-option, -g0,)
+
 ifdef CONFIG_CC_OPTIMIZE_FOR_SIZE
 KBUILD_CFLAGS	+= -Os $(call cc-disable-warning,maybe-uninitialized,)
 else
