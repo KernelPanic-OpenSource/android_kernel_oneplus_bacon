@@ -904,7 +904,7 @@ static int msm_eeprom_spi_remove(struct spi_device *sdev)
 	return 0;
 }
 
-static int msm_eeprom_platform_probe(struct platform_device *pdev)
+static int __maybe_unused  msm_eeprom_platform_probe(struct platform_device *pdev)
 {
 	int rc = 0;
 	int j = 0;

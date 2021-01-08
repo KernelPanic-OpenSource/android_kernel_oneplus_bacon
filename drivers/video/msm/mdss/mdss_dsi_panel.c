@@ -313,9 +313,9 @@ mode_gpio_err:
 rst_gpio_err:
 	if (gpio_is_valid(ctrl_pdata->vci_en_gpio))
 		gpio_free(ctrl_pdata->vci_en_gpio);
-vci_en_gpio_err:
-	if (gpio_is_valid(ctrl_pdata->disp_en_gpio))
-		gpio_free(ctrl_pdata->disp_en_gpio);
+// vci_en_gpio_err:
+// 	if (gpio_is_valid(ctrl_pdata->disp_en_gpio))
+// 		gpio_free(ctrl_pdata->disp_en_gpio);
 disp_en_gpio_err:
 	return rc;
 }
