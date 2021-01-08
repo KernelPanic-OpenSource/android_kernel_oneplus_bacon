@@ -1146,7 +1146,7 @@ struct spi_driver msm_eeprom2_spi_driver = {
 
 static int __init msm_eeprom_init_module(void)
 {
-	int rc = 0;
+//	int rc = 0;
 	CDBG("%s E\n", __func__);
 /*	rc = platform_driver_probe(&msm_eeprom2_platform_driver,
 		msm_eeprom_platform_probe);
