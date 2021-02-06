@@ -22,6 +22,15 @@ LC_COLLATE=C
 LC_NUMERIC=C
 export LC_COLLATE LC_NUMERIC
 
+# Google GCC 4.9
+PWD := $(shell cd .. && pwd)
+export M=$(PWD)
+export ARCH=arm
+export SUBARCH=arm
+export KBUILD_BUILD_USER=Nobita
+export KBUILD_BUILD_HOST=Colab
+export CROSS_COMPILE=$M/google/androideabi-4.9/bin/arm-linux-androideabi-
+
 # We are using a recursive build, so we need to do a little thinking
 # to get the ordering right.
 #
